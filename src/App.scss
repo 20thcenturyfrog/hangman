@@ -1,0 +1,162 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.result-message {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.drawing {
+  position: relative;
+
+  &-dropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 10px;
+    background: #000;
+  }
+
+  &-top {
+    height: 10px;
+    width: 200px;
+    margin-left: 120px;
+    background: #000;
+  }
+
+  &-upright {
+    height: 400px;
+    width: 10px;
+    margin-left: 120px;
+    background: #000;
+  }
+
+  &-bottom {
+    height: 10px;
+    width: 250px;
+    background: #000;
+  }
+
+  &-head {
+    position: absolute;
+    top: 50px;
+    right: -30px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 10px solid black;
+  }
+
+  &-body {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    height: 100px;
+    width: 10px;
+    background: #000;
+  }
+
+  &-right-arm,
+  &-left-arm,
+  &-right-leg,
+  &-left-leg {
+    position: absolute;
+    height: 10px;
+    width: 100px;
+    background: #000;
+  }
+
+  &-right-arm {
+    top: 150px;
+    right: -100px;
+    rotate: -30deg;
+    transform-origin: left bottom;
+  }
+
+  &-left-arm {
+    top: 150px;
+    right: 10px;
+    rotate: 30deg;
+    transform-origin: right bottom;
+  }
+
+  &-right-leg {
+    top: 210px;
+    right: -90px;
+    rotate: 60deg;
+    transform-origin: left bottom;
+  }
+
+  &-left-leg {
+    top: 210px;
+    right: 0;
+    rotate: -60deg;
+    transform-origin: right bottom;
+  }
+}
+
+.word {
+  display: flex;
+  gap: 0.25em;
+  font-family: monospace;
+  font-size: 6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 40px;
+}
+
+.letter {
+  border-bottom: 0.1em solid #000;
+
+  &-visible {
+    visibility: visible;
+  }
+
+  &-hidden {
+    visibility: hidden;
+  }
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 0.5rem;
+  align-self: stretch;
+  margin-top: 40px;
+}
+
+.key {
+  width: 100%;
+  border: 4px solid #000;
+  background: none;
+  color: #000;
+  aspect-ratio: 1/1;
+  font-family: monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background-color: #ececec;
+  }
+
+  &.active {
+    background-color: #27ab2b;
+    color: #fff;
+  }
+
+  &.inactive {
+    opacity: 0.3;
+    cursor: auto;
+  }
+}
