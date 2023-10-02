@@ -1,17 +1,26 @@
-export default function HangmanWord() {
-  const word = "test";
-  const guessedLetters = ["t"];
+type HangmanWordProps = {
+  wordToGuess: string;
+  guessedLetters: string[];
+  reveal?: boolean;
+};
 
+export default function HangmanWord({
+  wordToGuess,
+  guessedLetters,
+  reveal = false,
+}: HangmanWordProps) {
   return (
     <div className="word">
-      {word.split("").map((letter, index) => (
+      {wordToGuess.split("").map((letter, index) => (
         <span className="letter" key={index}>
           <span
-            className={
-              guessedLetters.includes(letter)
+            className={`${
+              guessedLetters.includes(letter) || reveal
                 ? "letter-visible"
                 : "letter-hidden"
-            }
+            } ${
+              !guessedLetters.includes(letter) && reveal && "letter-revealed"
+            }`}
           >
             {letter}
           </span>

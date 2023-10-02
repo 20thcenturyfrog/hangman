@@ -5,15 +5,18 @@ const LEFT_ARM = <div className="drawing-left-arm" />;
 const RIGHT_LEG = <div className="drawing-right-leg" />;
 const LEFT_LEG = <div className="drawing-left-leg" />;
 
-export default function HangmanDrawing() {
+const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
+
+type HangmanDrawingProps = {
+  numberOfGuesses: number;
+};
+
+export default function HangmanDrawing({
+  numberOfGuesses,
+}: HangmanDrawingProps) {
   return (
     <div className="drawing">
-      {HEAD}
-      {BODY}
-      {RIGHT_ARM}
-      {LEFT_ARM}
-      {RIGHT_LEG}
-      {LEFT_LEG}
+      {BODY_PARTS.slice(0, numberOfGuesses)}
       <div className="drawing-dropdown" />
       <div className="drawing-top" />
       <div className="drawing-upright" />

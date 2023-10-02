@@ -8,8 +8,11 @@
 }
 
 .result-message {
+  font-family: monospace;
   font-size: 2rem;
+  font-weight: bold;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .drawing {
@@ -122,6 +125,10 @@
   &-hidden {
     visibility: hidden;
   }
+
+  &-revealed {
+    color: red;
+  }
 }
 
 .keyboard {
@@ -135,6 +142,7 @@
 .key {
   width: 100%;
   border: 4px solid #000;
+  border-radius: 10%;
   background: none;
   color: #000;
   aspect-ratio: 1/1;
@@ -143,11 +151,11 @@
   font-weight: bold;
   text-transform: uppercase;
   padding: 0.5rem;
-  cursor: pointer;
 
-  &:hover:not(:disabled),
-  &:focus:not(:disabled) {
+  &:hover:not(:disabled):not(.active),
+  &:focus:not(:disabled):not(.active) {
     background-color: #ececec;
+    cursor: pointer;
   }
 
   &.active {
