@@ -11,7 +11,7 @@
 
 ## Getting started
 
-Run `npm start` in the project directory to open the app locally.
+Run `npm run dev` in the project directory to open the app locally.
 
 ## Technologies
 
